@@ -1,0 +1,214 @@
+{
+  "seed": 2270014,
+  "generatedAt": "2026-03-07T08:48:07.775Z",
+  "hexes": [
+    {
+      "id": "-2,0",
+      "q": -2,
+      "r": 0,
+      "type": "desert",
+      "number": null,
+      "hasRobber": true
+    },
+    {
+      "id": "-2,1",
+      "q": -2,
+      "r": 1,
+      "type": "wheat",
+      "number": 10,
+      "hasRobber": false
+    },
+    {
+      "id": "-2,2",
+      "q": -2,
+      "r": 2,
+      "type": "wood",
+      "number": 8,
+      "hasRobber": false
+    },
+    {
+      "id": "-1,-1",
+      "q": -1,
+      "r": -1,
+      "type": "sheep",
+      "number": 5,
+      "hasRobber": false
+    },
+    {
+      "id": "-1,0",
+      "q": -1,
+      "r": 0,
+      "type": "ore",
+      "number": 9,
+      "hasRobber": false
+    },
+    {
+      "id": "-1,1",
+      "q": -1,
+      "r": 1,
+      "type": "wheat",
+      "number": 3,
+      "hasRobber": false
+    },
+    {
+      "id": "-1,2",
+      "q": -1,
+      "r": 2,
+      "type": "ore",
+      "number": 4,
+      "hasRobber": false
+    },
+    {
+      "id": "0,-2",
+      "q": 0,
+      "r": -2,
+      "type": "brick",
+      "number": 2,
+      "hasRobber": false
+    },
+    {
+      "id": "0,-1",
+      "q": 0,
+      "r": -1,
+      "type": "wood",
+      "number": 4,
+      "hasRobber": false
+    },
+    {
+      "id": "0,0",
+      "q": 0,
+      "r": 0,
+      "type": "wood",
+      "number": 11,
+      "hasRobber": false
+    },
+    {
+      "id": "0,1",
+      "q": 0,
+      "r": 1,
+      "type": "sheep",
+      "number": 6,
+      "hasRobber": false
+    },
+    {
+      "id": "0,2",
+      "q": 0,
+      "r": 2,
+      "type": "wood",
+      "number": 11,
+      "hasRobber": false
+    },
+    {
+      "id": "1,-2",
+      "q": 1,
+      "r": -2,
+      "type": "ore",
+      "number": 6,
+      "hasRobber": false
+    },
+    {
+      "id": "1,-1",
+      "q": 1,
+      "r": -1,
+      "type": "wheat",
+      "number": 8,
+      "hasRobber": false
+    },
+    {
+      "id": "1,0",
+      "q": 1,
+      "r": 0,
+      "type": "sheep",
+      "number": 5,
+      "hasRobber": false
+    },
+    {
+      "id": "1,1",
+      "q": 1,
+      "r": 1,
+      "type": "brick",
+      "number": 12,
+      "hasRobber": false
+    },
+    {
+      "id": "2,-2",
+      "q": 2,
+      "r": -2,
+      "type": "sheep",
+      "number": 3,
+      "hasRobber": false
+    },
+    {
+      "id": "2,-1",
+      "q": 2,
+      "r": -1,
+      "type": "wheat",
+      "number": 10,
+      "hasRobber": false
+    },
+    {
+      "id": "2,0",
+      "q": 2,
+      "r": 0,
+      "type": "brick",
+      "number": 9,
+      "hasRobber": false
+    }
+  ],
+  "ports": [
+    {
+      "q": -1,
+      "r": -1,
+      "seaDir": 3,
+      "type": "sheep"
+    },
+    {
+      "q": 0,
+      "r": -2,
+      "seaDir": 2,
+      "type": "any"
+    },
+    {
+      "q": 1,
+      "r": -2,
+      "seaDir": 1,
+      "type": "ore"
+    },
+    {
+      "q": 2,
+      "r": -2,
+      "seaDir": 0,
+      "type": "any"
+    },
+    {
+      "q": 2,
+      "r": 0,
+      "seaDir": 1,
+      "type": "wheat"
+    },
+    {
+      "q": 1,
+      "r": 1,
+      "seaDir": 5,
+      "type": "any"
+    },
+    {
+      "q": 0,
+      "r": 2,
+      "seaDir": 4,
+      "type": "brick"
+    },
+    {
+      "q": -2,
+      "r": 2,
+      "seaDir": 4,
+      "type": "any"
+    },
+    {
+      "q": -2,
+      "r": 0,
+      "seaDir": 3,
+      "type": "wood"
+    }
+  ]
+}
