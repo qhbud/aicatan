@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>AI Catan — Turn 10 Map (Seed 15286652)</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0d2b4a;font-family:'Georgia',serif;color:#f0e6d3;display:flex;flex-direction:column;align-items:center;min-height:100vh}
+header{padding:18px 0 4px;font-size:1.4em;letter-spacing:4px;color:#f5d78e;text-transform:uppercase}
+#sub{font-size:0.75em;color:#9ab8d8;letter-spacing:2px;margin-bottom:10px}
+#board-svg{display:block;max-width:100%}
+#scores{display:flex;gap:14px;margin:10px 0 24px;flex-wrap:wrap;justify-content:center}
+.sc{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:7px 14px;display:flex;align-items:center;gap:8px;font-size:0.87em}
+.sd{width:12px;height:12px;border-radius:50%}</style></head>
+<body><header>AI CATAN</header>
+<div id="sub">AFTER TURN 10 — SEED: 15286652</div>
+<svg id="board-svg"></svg>
+<div id="scores"><div class="sc"><div class="sd" style="background:#409128"></div><b>Claude</b><span style="color:#f5d78e;margin-left:6px">5 VP</span></div><div class="sc"><div class="sd" style="background:#A73E3A"></div><b>GPT-4o</b><span style="color:#f5d78e;margin-left:6px">3 VP</span></div><div class="sc"><div class="sd" style="background:#2C2C2E"></div><b>Grok</b><span style="color:#f5d78e;margin-left:6px">3 VP</span></div><div class="sc"><div class="sd" style="background:#3EABAB"></div><b>DeepSeek</b><span style="color:#f5d78e;margin-left:6px">3 VP</span></div><div class="sc"><div class="sd" style="background:#2863B8"></div><b>Gemini</b><span style="color:#f5d78e;margin-left:6px">2 VP</span></div></div>
+<script>
+const D={"seed":15286652,"hexes":[{"id":"-2,0","q":-2,"r":0,"type":"ore","number":5,"hasRobber":false},{"id":"-2,1","q":-2,"r":1,"type":"ore","number":10,"hasRobber":true},{"id":"-2,2","q":-2,"r":2,"type":"sheep","number":8,"hasRobber":false},{"id":"-1,-1","q":-1,"r":-1,"type":"wood","number":2,"hasRobber":false},{"id":"-1,0","q":-1,"r":0,"type":"sheep","number":9,"hasRobber":false},{"id":"-1,1","q":-1,"r":1,"type":"wheat","number":3,"hasRobber":false},{"id":"-1,2","q":-1,"r":2,"type":"wood","number":4,"hasRobber":false},{"id":"0,-2","q":0,"r":-2,"type":"desert","number":null,"hasRobber":false},{"id":"0,-1","q":0,"r":-1,"type":"brick","number":4,"hasRobber":false},{"id":"0,0","q":0,"r":0,"type":"sheep","number":11,"hasRobber":false},{"id":"0,1","q":0,"r":1,"type":"sheep","number":6,"hasRobber":false},{"id":"0,2","q":0,"r":2,"type":"wheat","number":11,"hasRobber":false},{"id":"1,-2","q":1,"r":-2,"type":"wheat","number":6,"hasRobber":false},{"id":"1,-1","q":1,"r":-1,"type":"brick","number":8,"hasRobber":false},{"id":"1,0","q":1,"r":0,"type":"wood","number":5,"hasRobber":false},{"id":"1,1","q":1,"r":1,"type":"brick","number":12,"hasRobber":false},{"id":"2,-2","q":2,"r":-2,"type":"ore","number":3,"hasRobber":false},{"id":"2,-1","q":2,"r":-1,"type":"wood","number":10,"hasRobber":false},{"id":"2,0","q":2,"r":0,"type":"wheat","number":9,"hasRobber":false}],"ports":[{"q":-1,"r":-1,"seaDir":3,"type":"sheep"},{"q":0,"r":-2,"seaDir":2,"type":"any"},{"q":1,"r":-2,"seaDir":1,"type":"ore"},{"q":2,"r":-2,"seaDir":0,"type":"any"},{"q":2,"r":0,"seaDir":1,"type":"wheat"},{"q":1,"r":1,"seaDir":5,"type":"any"},{"q":0,"r":2,"seaDir":4,"type":"brick"},{"q":-2,"r":2,"seaDir":4,"type":"any"},{"q":-2,"r":0,"seaDir":3,"type":"wood"}],"buildings":[{"vertexId":"-1,0|-2,0|-2,1","playerId":"p3","playerName":"Grok","playerColor":"#2C2C2E","buildingType":"settlement"},{"vertexId":"-1,1|-2,1|-2,2","playerId":"p4","playerName":"DeepSeek","playerColor":"#3EABAB","buildingType":"settlement"},{"vertexId":"-1,-1|0,-1|0,-2","playerId":"p3","playerName":"Grok","playerColor":"#2C2C2E","buildingType":"settlement"},{"vertexId":"-1,0|0,-1|0,0","playerId":"p3","playerName":"Grok","playerColor":"#2C2C2E","buildingType":"settlement"},{"vertexId":"-1,1|-1,2|0,1","playerId":"p4","playerName":"DeepSeek","playerColor":"#3EABAB","buildingType":"settlement"},{"vertexId":"0,-1|1,-1|1,-2","playerId":"p1","playerName":"GPT-4o","playerColor":"#A73E3A","buildingType":"settlement"},{"vertexId":"0,0|0,1|1,0","playerId":"p5","playerName":"Claude","playerColor":"#409128","buildingType":"city"},{"vertexId":"0,1|0,2|1,1","playerId":"p2","playerName":"Gemini","playerColor":"#2863B8","buildingType":"settlement"},{"vertexId":"1,-2|2,-2|~2,-3","playerId":"p1","playerName":"GPT-4o","playerColor":"#A73E3A","buildingType":"settlement"},{"vertexId":"1,-1|1,0|2,-1","playerId":"p2","playerName":"Gemini","playerColor":"#2863B8","buildingType":"settlement"},{"vertexId":"1,0|1,1|2,0","playerId":"p5","playerName":"Claude","playerColor":"#409128","buildingType":"settlement"},{"vertexId":"2,-1|2,0|~3,-1","playerId":"p5","playerName":"Claude","playerColor":"#409128","buildingType":"settlement"}],"roads":[{"edgeId":"-1,-1|-1,0|-2,0||-1,0|-2,0|-2,1","playerId":"p3","playerName":"Grok","playerColor":"#2C2C2E"},{"edgeId":"-1,0|-1,1|-2,1||-1,0|-2,0|-2,1","playerId":"p3","playerName":"Grok","playerColor":"#2C2C2E"},{"edgeId":"-1,1|-1,2|-2,2||-1,1|-2,1|-2,2","playerId":"p4","playerName":"DeepSeek","playerColor":"#3EABAB"},{"edgeId":"-1,1|-1,2|-2,2||-1,2|-2,2|~-2,3","playerId":"p4","playerName":"DeepSeek","playerColor":"#3EABAB"},{"edgeId":"-1,-1|-1,0|-2,0||-1,-1|-1,0|0,-1","playerId":"p3","playerName":"Grok","playerColor":"#2C2C2E"},{"edgeId":"-1,-1|-1,0|0,-1||-1,-1|0,-1|0,-2","playerId":"p3","playerName":"Grok","playerColor":"#2C2C2E"},{"edgeId":"-1,1|-1,2|0,1||-1,2|0,1|0,2","playerId":"p4","playerName":"DeepSeek","playerColor":"#3EABAB"},{"edgeId":"-1,0|0,-1|0,0||0,-1|0,0|1,-1","playerId":"p3","playerName":"Grok","playerColor":"#2C2C2E"},{"edgeId":"0,0|0,1|1,0||0,0|1,-1|1,0","playerId":"p5","playerName":"Claude","playerColor":"#409128"},{"edgeId":"0,1|0,2|1,1||0,1|1,0|1,1","playerId":"p2","playerName":"Gemini","playerColor":"#2863B8"},{"edgeId":"1,-2|2,-2|~2,-3||1,-2|~1,-3|~2,-3","playerId":"p1","playerName":"GPT-4o","playerColor":"#A73E3A"},{"edgeId":"0,-1|1,-1|1,-2||1,-1|1,-2|2,-2","playerId":"p1","playerName":"GPT-4o","playerColor":"#A73E3A"},{"edgeId":"1,-1|1,-2|2,-2||1,-2|2,-2|~2,-3","playerId":"p1","playerName":"GPT-4o","playerColor":"#A73E3A"},{"edgeId":"1,-1|1,0|2,-1||1,-1|2,-1|2,-2","playerId":"p2","playerName":"Gemini","playerColor":"#2863B8"},{"edgeId":"1,0|1,1|2,0||1,0|2,-1|2,0","playerId":"p5","playerName":"Claude","playerColor":"#409128"},{"edgeId":"1,0|1,1|2,0||1,1|2,0|~2,1","playerId":"p5","playerName":"Claude","playerColor":"#409128"},{"edgeId":"1,0|2,-1|2,0||2,-1|2,0|~3,-1","playerId":"p5","playerName":"Claude","playerColor":"#409128"}],"robberHexId":"-2,1"};
+
+const COLORS={wood:'#2e6b30',wheat:'#c8960e',sheep:'#72b85e',brick:'#aa3e22',ore:'#5a6070',desert:'#c4a96a',ocean:'#14467a'};
+const BORDER={wood:'#1e4a20',wheat:'#8f6a08',sheep:'#4e8a3e',brick:'#7a2a14',ore:'#3a4050',desert:'#9a7e48'};
+const PORT_COLORS={any:'#9b59b6',wood:'#2e8b30',wheat:'#e0b020',sheep:'#5fba4a',brick:'#cc4428',ore:'#7888aa'};
+const PIPS={2:1,3:2,4:3,5:4,6:5,8:5,9:4,10:3,11:2,12:1};
+const SVG_NS='http://www.w3.org/2000/svg';
+function el(t,a={}){const e=document.createElementNS(SVG_NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,v);return e;}
+function hexCenter(q,r,sz,ox,oy){return{x:ox+sz*Math.sqrt(3)*(q+r/2),y:oy+sz*1.5*r};}
+function hexCorners(cx,cy,sz){return Array.from({length:6},(_,i)=>{const a=-Math.PI/6-Math.PI/3*i;return[cx+sz*Math.cos(a),cy+sz*Math.sin(a)];});}
+function portFace(q,r,sd,sz,ox,oy){const{x:cx,y:cy}=hexCenter(q,r,sz,ox,oy);const c=hexCorners(cx,cy,sz);const c1=c[(sd-1+6)%6],c2=c[sd];const mx=(c1[0]+c2[0])/2,my=(c1[1]+c2[1])/2;const dx=mx-cx,dy=my-cy,len=Math.sqrt(dx*dx+dy*dy);return{c1,c2,mx,my,nx:dx/len,ny:dy/len,cx,cy};}
+function vertexPos(vid,sz,ox,oy){const ids=vid.split('|').map(h=>h.replace(/^~/,''));let sx=0,sy=0;for(const hid of ids){const[q,r]=hid.split(',').map(Number);const c=hexCenter(q,r,sz,ox,oy);sx+=c.x;sy+=c.y;}return{x:sx/ids.length,y:sy/ids.length};}
+function edgePts(eid,sz,ox,oy){const[v1,v2]=eid.split('||');return{p1:vertexPos(v1,sz,ox,oy),p2:vertexPos(v2,sz,ox,oy)};}
+function drawBoard(svg,D,W,H,sz){
+  const ox=W/2,oy=H/2-10;
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.setAttribute('width',W);svg.setAttribute('height',H);
+  svg.appendChild(el('rect',{x:0,y:0,width:W,height:H,fill:COLORS.ocean}));
+  for(const hex of D.hexes){
+    const{x:cx,y:cy}=hexCenter(hex.q,hex.r,sz,ox,oy);
+    const corners=hexCorners(cx,cy,sz);
+    const pts=corners.map(([x,y])=>`${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+    svg.appendChild(el('polygon',{points:pts,fill:COLORS[hex.type]??'#888',stroke:BORDER[hex.type]??'#444','stroke-width':'2'}));
+    // Robber
+    if(hex.hasRobber){
+      svg.appendChild(el('circle',{cx,cy,r:14,fill:'rgba(0,0,0,0.55)','stroke-width':'0'}));
+      const rt=el('text',{x:cx,y:cy+5,'text-anchor':'middle','font-size':'14',fill:'#fff'});rt.textContent='♟';svg.appendChild(rt);
+    }
+    if(hex.type==='desert'){
+      if(!hex.hasRobber){const t=el('text',{x:cx,y:cy+6,'text-anchor':'middle','font-size':'22',fill:'rgba(0,0,0,0.28)'});t.textContent='♟';svg.appendChild(t);}
+      const lb=el('text',{x:cx,y:cy+22,'text-anchor':'middle','font-size':'8',fill:'rgba(0,0,0,0.3)','letter-spacing':'1'});lb.textContent='DESERT';svg.appendChild(lb);
+      continue;
+    }
+    const isRed=hex.number===6||hex.number===8;
+    svg.appendChild(el('circle',{cx,cy,r:18,fill:isRed?'#f5ede0':'#f5f0e8',stroke:isRed?'#c44':'#bbb','stroke-width':'1.5'}));
+    const nt=el('text',{x:cx,y:cy+5,'text-anchor':'middle','font-size':'16','font-weight':'bold','font-family':'Georgia,serif',fill:isRed?'#c00':'#222'});nt.textContent=hex.number??'';svg.appendChild(nt);
+    const pips=PIPS[hex.number]??0,sp=5,tw=(pips-1)*sp;
+    for(let p=0;p<pips;p++)svg.appendChild(el('circle',{cx:cx-tw/2+p*sp,cy:cy+13,r:'1.8',fill:isRed?'#c00':'#444'}));
+    const rl=el('text',{x:cx,y:cy-24,'text-anchor':'middle','font-size':'8','letter-spacing':'0.5',fill:'rgba(255,255,255,0.65)'});rl.textContent=hex.type.toUpperCase();svg.appendChild(rl);
+  }
+  for(const port of D.ports){
+    const col=PORT_COLORS[port.type]??'#aaa';
+    const f=portFace(port.q,port.r,port.seaDir,sz,ox,oy);
+    svg.appendChild(el('line',{x1:f.c1[0],y1:f.c1[1],x2:f.c2[0],y2:f.c2[1],stroke:col,'stroke-width':'5','stroke-linecap':'round'}));
+    const lx=f.cx+f.nx*(sz*0.87+sz*0.38),ly=f.cy+f.ny*(sz*0.87+sz*0.38);
+    const bgW=port.type==='any'?28:52;
+    svg.appendChild(el('rect',{x:lx-bgW/2,y:ly-9,width:bgW,height:16,rx:4,fill:col,opacity:'0.92'}));
+    const lt=el('text',{x:lx,y:ly+4,'text-anchor':'middle','font-size':'9','font-weight':'bold','font-family':'Georgia,serif',fill:'#fff'});lt.textContent=port.type==='any'?'3:1':`2:1 ${port.type[0].toUpperCase()}`;svg.appendChild(lt);
+    svg.appendChild(el('line',{x1:(f.c1[0]+f.c2[0])/2,y1:(f.c1[1]+f.c2[1])/2,x2:lx,y2:ly,stroke:col,'stroke-width':'1.5','stroke-dasharray':'3,2',opacity:'0.6'}));
+  }
+  // Roads
+  for(const road of D.roads){
+    const col=road.playerColor;
+    const{p1,p2}=edgePts(road.edgeId,sz,ox,oy);
+    svg.appendChild(el('line',{x1:p1.x,y1:p1.y,x2:p2.x,y2:p2.y,stroke:'rgba(0,0,0,0.35)','stroke-width':'8','stroke-linecap':'round'}));
+    svg.appendChild(el('line',{x1:p1.x,y1:p1.y,x2:p2.x,y2:p2.y,stroke:col,'stroke-width':'5','stroke-linecap':'round'}));
+  }
+  // Buildings (settlements = circle, cities = larger double ring)
+  for(const b of D.buildings){
+    const{x,y}=vertexPos(b.vertexId,sz,ox,oy);
+    const col=b.playerColor;
+    if(b.buildingType==='city'){
+      svg.appendChild(el('circle',{cx:x,cy:y,r:13,fill:'rgba(0,0,0,0.4)','stroke-width':'0'}));
+      svg.appendChild(el('circle',{cx:x,cy:y,r:12,fill:col,stroke:'#fff','stroke-width':'2.5'}));
+      svg.appendChild(el('circle',{cx:x,cy:y,r:6,fill:'rgba(255,255,255,0.35)','stroke-width':'0'}));
+    } else {
+      svg.appendChild(el('circle',{cx:x,cy:y,r:10,fill:'rgba(0,0,0,0.35)','stroke-width':'0'}));
+      svg.appendChild(el('circle',{cx:x,cy:y,r:9,fill:col,stroke:'#fff','stroke-width':'2'}));
+    }
+  }
+}
+drawBoard(document.getElementById('board-svg'),D,760,680,62);
+</script></body></html>
