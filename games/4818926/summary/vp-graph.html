@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VP Over Time — Game 4818926</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1a1a2e;
+      color: #eee;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      padding: 2rem;
+    }
+    h1 { text-align: center; font-size: 1.6rem; margin-bottom: 0.3rem; color: #f0c040; }
+    .subtitle { text-align: center; color: #aaa; font-size: 0.9rem; margin-bottom: 2rem; }
+    .chart-container {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+    canvas { display: block; width: 100%; }
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      justify-content: center; margin-top: 1.5rem;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .legend-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+    }
+    .winner-badge {
+      text-align: center;
+      background: linear-gradient(135deg, #f0c040, #e07000);
+      color: #1a1a2e;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-weight: bold;
+      display: inline-block;
+      margin: 0 auto 1.5rem;
+    }
+    .winner-wrap { text-align: center; }
+    table {
+      max-width: 900px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      width: 100%;
+    }
+    th, td {
+      padding: 0.4rem 0.8rem;
+      border: 1px solid #2a3a5e;
+      text-align: center;
+    }
+    th { background: #0f3460; color: #f0c040; }
+    tr:nth-child(even) td { background: #1a2744; }
+    td.win { font-weight: bold; color: #f0c040; }
+  </style>
+</head>
+<body>
+  <h1>AI Catan — VP Over Time</h1>
+  <p class="subtitle">Game Seed: 4818926 &nbsp;·&nbsp; 5 Players &nbsp;·&nbsp; 20 Turns</p>
+  <div class="winner-wrap">
+    <span class="winner-badge">🏆 Winner: DeepSeek (10 VP on Turn 20)</span>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="chart" height="420"></canvas>
+    <div class="legend" id="legend"></div>
+  </div>
+
+  <table id="table">
+    <thead>
+      <tr id="thead"></tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+<script>
+const data = [
+  {"turn":1,"GPT-4o":2,"Gemini":2,"Grok":2,"DeepSeek":2,"Claude":3},
+  {"turn":2,"GPT-4o":2,"Gemini":2,"Grok":2,"DeepSeek":2,"Claude":3},
+  {"turn":3,"GPT-4o":2,"Gemini":2,"Grok":3,"DeepSeek":2,"Claude":3},
+  {"turn":4,"GPT-4o":2,"Gemini":2,"Grok":3,"DeepSeek":2,"Claude":4},
+  {"turn":5,"GPT-4o":2,"Gemini":2,"Grok":4,"DeepSeek":3,"Claude":4},
+  {"turn":6,"GPT-4o":2,"Gemini":2,"Grok":4,"DeepSeek":3,"Claude":4},
+  {"turn":7,"GPT-4o":2,"Gemini":2,"Grok":4,"DeepSeek":3,"Claude":5},
+  {"turn":8,"GPT-4o":2,"Gemini":2,"Grok":4,"DeepSeek":3,"Claude":6},
+  {"turn":9,"GPT-4o":2,"Gemini":2,"Grok":4,"DeepSeek":3,"Claude":6},
+  {"turn":10,"GPT-4o":2,"Gemini":2,"Grok":4,"DeepSeek":5,"Claude":7},
+  {"turn":11,"GPT-4o":2,"Gemini":2,"Grok":5,"DeepSeek":6,"Claude":7},
+  {"turn":12,"GPT-4o":3,"Gemini":2,"Grok":5,"DeepSeek":6,"Claude":7},
+  {"turn":13,"GPT-4o":3,"Gemini":2,"Grok":6,"DeepSeek":6,"Claude":7},
+  {"turn":14,"GPT-4o":4,"Gemini":2,"Grok":6,"DeepSeek":6,"Claude":8},
+  {"turn":15,"GPT-4o":4,"Gemini":2,"Grok":6,"DeepSeek":7,"Claude":9},
+  {"turn":16,"GPT-4o":5,"Gemini":2,"Grok":6,"DeepSeek":8,"Claude":9},
+  {"turn":17,"GPT-4o":5,"Gemini":2,"Grok":6,"DeepSeek":9,"Claude":9},
+  {"turn":18,"GPT-4o":5,"Gemini":2,"Grok":7,"DeepSeek":9,"Claude":9},
+  {"turn":19,"GPT-4o":5,"Gemini":2,"Grok":7,"DeepSeek":9,"Claude":9},
+  {"turn":20,"GPT-4o":5,"Gemini":2,"Grok":7,"DeepSeek":10,"Claude":9}
+];
+
+const players = ["Claude","GPT-4o","Gemini","Grok","DeepSeek"];
+const colors = {
+  "Claude":   "#7c9ef8",
+  "GPT-4o":   "#74cc76",
+  "Gemini":   "#ff8c42",
+  "Grok":     "#e05c8a",
+  "DeepSeek": "#f0c040"
+};
+
+// Build legend
+const legend = document.getElementById('legend');
+players.forEach(p => {
+  const item = document.createElement('div');
+  item.className = 'legend-item';
+  item.innerHTML = `<div class="legend-dot" style="background:${colors[p]}"></div><span>${p}</span>`;
+  legend.appendChild(item);
+});
+
+// Build table
+const thead = document.getElementById('thead');
+const tbody = document.getElementById('tbody');
+thead.innerHTML = '<th>Turn</th>' + players.map(p => `<th style="color:${colors[p]}">${p}</th>`).join('');
+data.forEach(row => {
+  const tr = document.createElement('tr');
+  let cells = `<td><b>${row.turn}</b></td>`;
+  players.forEach(p => {
+    const isWin = row[p] >= 10;
+    cells += `<td class="${isWin ? 'win' : ''}">${row[p]}</td>`;
+  });
+  tr.innerHTML = cells;
+  tbody.appendChild(tr);
+});
+
+// Draw chart
+const canvas = document.getElementById('chart');
+const dpr = window.devicePixelRatio || 1;
+const W = canvas.parentElement.clientWidth - 64;
+const H = 420;
+canvas.width = W * dpr;
+canvas.height = H * dpr;
+canvas.style.width = W + 'px';
+canvas.style.height = H + 'px';
+const ctx = canvas.getContext('2d');
+ctx.scale(dpr, dpr);
+
+const PAD = { top: 30, right: 20, bottom: 50, left: 50 };
+const cW = W - PAD.left - PAD.right;
+const cH = H - PAD.top - PAD.bottom;
+const turns = data.map(d => d.turn);
+const maxVP = 11;
+const minVP = 0;
+
+function xPos(t) { return PAD.left + ((t - 1) / (turns.length - 1)) * cW; }
+function yPos(v) { return PAD.top + cH - ((v - minVP) / (maxVP - minVP)) * cH; }
+
+// Grid lines
+ctx.strokeStyle = '#2a3a5e';
+ctx.lineWidth = 1;
+for (let v = 0; v <= 10; v++) {
+  const y = yPos(v);
+  ctx.beginPath(); ctx.moveTo(PAD.left, y); ctx.lineTo(PAD.left + cW, y); ctx.stroke();
+  ctx.fillStyle = v === 10 ? '#f0c040' : '#6a8abf';
+  ctx.font = v === 10 ? 'bold 12px Segoe UI' : '11px Segoe UI';
+  ctx.textAlign = 'right';
+  ctx.fillText(v, PAD.left - 8, y + 4);
+}
+
+// Win line
+ctx.strokeStyle = 'rgba(240,192,64,0.3)';
+ctx.lineWidth = 2;
+ctx.setLineDash([6, 4]);
+ctx.beginPath();
+ctx.moveTo(PAD.left, yPos(10));
+ctx.lineTo(PAD.left + cW, yPos(10));
+ctx.stroke();
+ctx.setLineDash([]);
+ctx.fillStyle = 'rgba(240,192,64,0.6)';
+ctx.font = '11px Segoe UI';
+ctx.textAlign = 'left';
+ctx.fillText('WIN', PAD.left + 4, yPos(10) - 5);
+
+// X axis labels
+ctx.fillStyle = '#8899bb';
+ctx.font = '11px Segoe UI';
+ctx.textAlign = 'center';
+for (let t = 1; t <= 20; t += 2) {
+  ctx.fillText('T' + t, xPos(t), PAD.top + cH + 20);
+}
+
+// Axes
+ctx.strokeStyle = '#3a4a6e';
+ctx.lineWidth = 1.5;
+ctx.beginPath();
+ctx.moveTo(PAD.left, PAD.top);
+ctx.lineTo(PAD.left, PAD.top + cH);
+ctx.lineTo(PAD.left + cW, PAD.top + cH);
+ctx.stroke();
+
+// Lines
+players.forEach(p => {
+  ctx.strokeStyle = colors[p];
+  ctx.lineWidth = p === 'DeepSeek' || p === 'Claude' ? 3 : 2;
+  ctx.beginPath();
+  data.forEach((row, i) => {
+    const x = xPos(row.turn);
+    const y = yPos(row[p]);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  // Dots
+  data.forEach(row => {
+    const x = xPos(row.turn);
+    const y = yPos(row[p]);
+    ctx.beginPath();
+    ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+    ctx.fillStyle = colors[p];
+    ctx.fill();
+  });
+});
+
+// Mark winner's final dot
+const winRow = data[19];
+const wx = xPos(20);
+const wy = yPos(winRow['DeepSeek']);
+ctx.beginPath();
+ctx.arc(wx, wy, 8, 0, Math.PI * 2);
+ctx.strokeStyle = '#f0c040';
+ctx.lineWidth = 2.5;
+ctx.stroke();
+ctx.fillStyle = colors['DeepSeek'];
+ctx.fill();
+</script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resources Per Turn — Game 4818926</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1a1a2e;
+      color: #eee;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      padding: 2rem;
+    }
+    h1 { text-align: center; font-size: 1.5rem; margin-bottom: 0.3rem; color: #f0c040; }
+    .subtitle { text-align: center; color: #aaa; font-size: 0.85rem; margin-bottom: 1.5rem; }
+
+    .player-section { margin-bottom: 2.5rem; }
+    .player-header {
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px 6px 0 0;
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      width: 100%;
+      max-width: 700px;
+    }
+    th, td {
+      padding: 0.35rem 0.7rem;
+      border: 1px solid #2a3a5e;
+      text-align: center;
+    }
+    th { background: #0f3460; color: #ccd; }
+    th.res { color: #f0c040; }
+    tr:nth-child(even) td { background: #1a2744; }
+    td.turn { font-weight: bold; color: #8899cc; }
+    td.total { font-weight: bold; color: #f0c040; }
+    td.zero { color: #3a4a6e; }
+    td.high { color: #7cf0a0; font-weight: bold; }
+
+    .wood  { color: #8fbc8f; }
+    .brick { color: #e07040; }
+    .wheat { color: #f0c040; }
+    .sheep { color: #a0e0a0; }
+    .ore   { color: #9090d0; }
+
+    .legend {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      margin-bottom: 1.5rem; font-size: 0.85rem;
+    }
+    .legend span { display: flex; align-items: center; gap: 0.4rem; }
+  </style>
+</head>
+<body>
+  <h1>Resources at End of Each Turn — Game 4818926</h1>
+  <p class="subtitle">State after each full turn cycle, turns 1–18</p>
+
+  <div class="legend">
+    <span><span class="wood">■</span> Wood</span>
+    <span><span class="brick">■</span> Brick</span>
+    <span><span class="wheat">■</span> Wheat</span>
+    <span><span class="sheep">■</span> Sheep</span>
+    <span><span class="ore">■</span> Ore</span>
+  </div>
+
+  <div id="tables"></div>
+
+<script>
+const data = [{"turn":1,"GPT-4o":{"wood":1,"brick":1,"wheat":0,"sheep":2,"ore":1},"Gemini":{"wood":0,"brick":0,"wheat":0,"sheep":1,"ore":0},"Grok":{"wood":2,"brick":0,"wheat":0,"sheep":0,"ore":0},"DeepSeek":{"wood":1,"brick":1,"wheat":1,"sheep":0,"ore":4},"Claude":{"wood":0,"brick":0,"wheat":0,"sheep":0,"ore":0}},{"turn":2,"GPT-4o":{"wood":0,"brick":0,"wheat":2,"sheep":1,"ore":1},"Gemini":{"wood":1,"brick":0,"wheat":0,"sheep":1,"ore":0},"Grok":{"wood":1,"brick":0,"wheat":1,"sheep":1,"ore":2},"DeepSeek":{"wood":3,"brick":0,"wheat":0,"sheep":0,"ore":1},"Claude":{"wood":1,"brick":0,"wheat":0,"sheep":0,"ore":2}},{"turn":3,"GPT-4o":{"wood":0,"brick":0,"wheat":1,"sheep":0,"ore":0},"Gemini":{"wood":1,"brick":0,"wheat":1,"sheep":0,"ore":0},"Grok":{"wood":4,"brick":0,"wheat":1,"sheep":2,"ore":0},"DeepSeek":{"wood":5,"brick":0,"wheat":1,"sheep":0,"ore":1},"Claude":{"wood":1,"brick":0,"wheat":0,"sheep":0,"ore":3}},{"turn":4,"GPT-4o":{"wood":0,"brick":0,"wheat":2,"sheep":0,"ore":0},"Gemini":{"wood":1,"brick":0,"wheat":1,"sheep":0,"ore":0},"Grok":{"wood":3,"brick":0,"wheat":2,"sheep":1,"ore":2},"DeepSeek":{"wood":3,"brick":0,"wheat":0,"sheep":0,"ore":3},"Claude":{"wood":0,"brick":0,"wheat":0,"sheep":0,"ore":1}},{"turn":5,"GPT-4o":{"wood":4,"brick":0,"wheat":0,"sheep":0,"ore":1},"Gemini":{"wood":1,"brick":2,"wheat":0,"sheep":0,"ore":0},"Grok":{"wood":7,"brick":0,"wheat":0,"sheep":1,"ore":0},"DeepSeek":{"wood":1,"brick":0,"wheat":0,"sheep":0,"ore":1},"Claude":{"wood":0,"brick":0,"wheat":1,"sheep":0,"ore":1}},{"turn":6,"GPT-4o":{"wood":5,"brick":0,"wheat":0,"sheep":0,"ore":2},"Gemini":{"wood":1,"brick":1,"wheat":0,"sheep":0,"ore":0},"Grok":{"wood":2,"brick":0,"wheat":0,"sheep":0,"ore":2},"DeepSeek":{"wood":0,"brick":1,"wheat":0,"sheep":0,"ore":3},"Claude":{"wood":1,"brick":1,"wheat":1,"sheep":0,"ore":2}},{"turn":7,"GPT-4o":{"wood":1,"brick":0,"wheat":0,"sheep":1,"ore":3},"Gemini":{"wood":1,"brick":0,"wheat":0,"sheep":0,"ore":0},"Grok":{"wood":3,"brick":0,"wheat":0,"sheep":0,"ore":1},"DeepSeek":{"wood":0,"brick":1,"wheat":0,"sheep":1,"ore":2},"Claude":{"wood":0,"brick":0,"wheat":0,"sheep":1,"ore":3}},{"turn":8,"GPT-4o":{"wood":3,"brick":0,"wheat":0,"sheep":3,"ore":3},"Gemini":{"wood":1,"brick":0,"wheat":0,"sheep":0,"ore":0},"Grok":{"wood":6,"brick":2,"wheat":1,"sheep":0,"ore":2},"DeepSeek":{"wood":1,"brick":0,"wheat":2,"sheep":3,"ore":2},"Claude":{"wood":0,"brick":0,"wheat":0,"sheep":3,"ore":2}},{"turn":9,"GPT-4o":{"wood":1,"brick":0,"wheat":0,"sheep":2,"ore":1},"Gemini":{"wood":0,"brick":0,"wheat":0,"sheep":0,"ore":0},"Grok":{"wood":3,"brick":0,"wheat":0,"sheep":0,"ore":3},"DeepSeek":{"wood":1,"brick":1,"wheat":1,"sheep":0,"ore":0},"Claude":{"wood":0,"brick":0,"wheat":1,"sheep":0,"ore":4}},{"turn":10,"GPT-4o":{"wood":2,"brick":1,"wheat":0,"sheep":0,"ore":2},"Gemini":{"wood":0,"brick":0,"wheat":1,"sheep":1,"ore":0},"Grok":{"wood":4,"brick":1,"wheat":2,"sheep":0,"ore":1},"DeepSeek":{"wood":2,"brick":0,"wheat":0,"sheep":1,"ore":3},"Claude":{"wood":0,"brick":0,"wheat":1,"sheep":0,"ore":2}},{"turn":11,"GPT-4o":{"wood":2,"brick":0,"wheat":1,"sheep":2,"ore":2},"Gemini":{"wood":2,"brick":0,"wheat":1,"sheep":0,"ore":0},"Grok":{"wood":1,"brick":0,"wheat":1,"sheep":1,"ore":4},"DeepSeek":{"wood":2,"brick":0,"wheat":0,"sheep":1,"ore":0},"Claude":{"wood":0,"brick":0,"wheat":2,"sheep":0,"ore":2}},{"turn":12,"GPT-4o":{"wood":2,"brick":0,"wheat":0,"sheep":1,"ore":1},"Gemini":{"wood":0,"brick":0,"wheat":1,"sheep":0,"ore":2},"Grok":{"wood":6,"brick":1,"wheat":1,"sheep":2,"ore":1},"DeepSeek":{"wood":2,"brick":0,"wheat":1,"sheep":4,"ore":0},"Claude":{"wood":6,"brick":0,"wheat":0,"sheep":2,"ore":0}},{"turn":13,"GPT-4o":{"wood":2,"brick":0,"wheat":1,"sheep":5,"ore":0},"Gemini":{"wood":5,"brick":0,"wheat":0,"sheep":2,"ore":0},"Grok":{"wood":5,"brick":0,"wheat":1,"sheep":2,"ore":0},"DeepSeek":{"wood":2,"brick":0,"wheat":0,"sheep":8,"ore":1},"Claude":{"wood":4,"brick":0,"wheat":1,"sheep":4,"ore":2}},{"turn":14,"GPT-4o":{"wood":3,"brick":1,"wheat":0,"sheep":2,"ore":0},"Gemini":{"wood":4,"brick":0,"wheat":0,"sheep":1,"ore":0},"Grok":{"wood":3,"brick":1,"wheat":1,"sheep":2,"ore":0},"DeepSeek":{"wood":3,"brick":0,"wheat":1,"sheep":2,"ore":0},"Claude":{"wood":0,"brick":0,"wheat":2,"sheep":0,"ore":3}},{"turn":15,"GPT-4o":{"wood":2,"brick":8,"wheat":3,"sheep":3,"ore":1},"Gemini":{"wood":3,"brick":0,"wheat":0,"sheep":1,"ore":4},"Grok":{"wood":1,"brick":1,"wheat":0,"sheep":3,"ore":2},"DeepSeek":{"wood":2,"brick":4,"wheat":0,"sheep":1,"ore":0},"Claude":{"wood":0,"brick":0,"wheat":0,"sheep":0,"ore":6}},{"turn":16,"GPT-4o":{"wood":2,"brick":1,"wheat":0,"sheep":10,"ore":1},"Gemini":{"wood":2,"brick":2,"wheat":0,"sheep":0,"ore":1},"Grok":{"wood":4,"brick":2,"wheat":0,"sheep":2,"ore":2},"DeepSeek":{"wood":1,"brick":2,"wheat":1,"sheep":4,"ore":0},"Claude":{"wood":0,"brick":2,"wheat":0,"sheep":8,"ore":5}},{"turn":17,"GPT-4o":{"wood":1,"brick":1,"wheat":0,"sheep":9,"ore":1},"Gemini":{"wood":2,"brick":2,"wheat":0,"sheep":0,"ore":1},"Grok":{"wood":11,"brick":1,"wheat":1,"sheep":5,"ore":2},"DeepSeek":{"wood":2,"brick":1,"wheat":1,"sheep":4,"ore":3},"Claude":{"wood":0,"brick":4,"wheat":3,"sheep":11,"ore":4}},{"turn":18,"GPT-4o":{"wood":5,"brick":0,"wheat":0,"sheep":15,"ore":1},"Gemini":{"wood":4,"brick":1,"wheat":0,"sheep":0,"ore":1},"Grok":{"wood":4,"brick":1,"wheat":1,"sheep":0,"ore":1},"DeepSeek":{"wood":1,"brick":2,"wheat":2,"sheep":1,"ore":0},"Claude":{"wood":2,"brick":1,"wheat":1,"sheep":1,"ore":2}}];
+
+const players = ["Claude","GPT-4o","Gemini","Grok","DeepSeek"];
+const colors = {
+  "Claude":   "#7c9ef8",
+  "GPT-4o":   "#74cc76",
+  "Gemini":   "#ff8c42",
+  "Grok":     "#e05c8a",
+  "DeepSeek": "#f0c040"
+};
+const resources = ["wood","brick","wheat","sheep","ore"];
+
+const container = document.getElementById('tables');
+
+players.forEach(player => {
+  const section = document.createElement('div');
+  section.className = 'player-section';
+
+  const header = document.createElement('div');
+  header.className = 'player-header';
+  header.style.background = colors[player] + '22';
+  header.style.borderLeft = `4px solid ${colors[player]}`;
+  header.style.color = colors[player];
+  header.textContent = player;
+  section.appendChild(header);
+
+  const table = document.createElement('table');
+  table.innerHTML = `<thead><tr>
+    <th>Turn</th>
+    <th class="res wood">Wood</th>
+    <th class="res brick">Brick</th>
+    <th class="res wheat">Wheat</th>
+    <th class="res sheep">Sheep</th>
+    <th class="res ore">Ore</th>
+    <th class="res">Total</th>
+  </tr></thead>`;
+
+  const tbody = document.createElement('tbody');
+  data.forEach(row => {
+    const r = row[player];
+    const total = Object.values(r).reduce((a,b) => a+b, 0);
+    const tr = document.createElement('tr');
+    const cell = (val, cls) => {
+      const td = document.createElement('td');
+      td.textContent = val;
+      if (val === 0) td.className = 'zero';
+      else if (val >= 8) td.className = 'high';
+      else td.className = cls;
+      return td;
+    };
+    const turnTd = document.createElement('td');
+    turnTd.className = 'turn';
+    turnTd.textContent = row.turn;
+    tr.appendChild(turnTd);
+    tr.appendChild(cell(r.wood, 'wood'));
+    tr.appendChild(cell(r.brick, 'brick'));
+    tr.appendChild(cell(r.wheat, 'wheat'));
+    tr.appendChild(cell(r.sheep, 'sheep'));
+    tr.appendChild(cell(r.ore, 'ore'));
+    const totalTd = document.createElement('td');
+    totalTd.className = 'total';
+    totalTd.textContent = total;
+    tr.appendChild(totalTd);
+    tbody.appendChild(tr);
+  });
+
+  table.appendChild(tbody);
+  section.appendChild(table);
+  container.appendChild(section);
+});
+</script>
+</body>
+</html>
