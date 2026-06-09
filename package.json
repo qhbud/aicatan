@@ -10,7 +10,7 @@
     "dev:watch": "ts-node-dev --respawn src/index.ts"
   },
   "keywords": ["catan", "ai", "llm", "simulation"],
-  "author": "",
+  "author": "Quinn Budnick",
   "license": "MIT",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",
